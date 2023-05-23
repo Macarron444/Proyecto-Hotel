@@ -38,7 +38,7 @@ public class HotelFrame extends JFrame {
         add(cancelPanel,gbc);
         infoPanel = new InfoPanel(listener);
         add(infoPanel,gbc);
-        distributionPanel = new DistributionPanel();
+        distributionPanel = new DistributionPanel(listener);
         add(distributionPanel,gbc);
     }
 

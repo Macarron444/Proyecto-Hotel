@@ -13,6 +13,7 @@ public class DateRPanel extends JPanel{
     private JTextField monthText;
     private JTextField yearText;
     private JSeparator separator;
+    private JButton searchButton;
     private JButton homeButton;
 
     public DateRPanel(ActionListener listener){
@@ -73,6 +74,13 @@ public class DateRPanel extends JPanel{
         gbc.gridy = 3;
         add(yearText, gbc);
 
+        searchButton = new JButton("Search");
+        searchButton.setActionCommand("search");
+        searchButton.addActionListener(listener);
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        add(searchButton, gbc);
+
         separator = new JSeparator(SwingConstants.VERTICAL);
         separator.setMinimumSize(new Dimension(10,153));
         separator.setMaximumSize(new Dimension(10,153));
@@ -80,7 +88,7 @@ public class DateRPanel extends JPanel{
         separator.setBackground(new Color(253, 253, 253, 0));
         separator.setForeground(new Color(0,0,0,0));
         gbc.gridx = 0;
-        gbc.gridy = 4;
+        gbc.gridy = 5;
         add(separator, gbc);
 
         homeButton = new JButton("Home");
@@ -89,7 +97,7 @@ public class DateRPanel extends JPanel{
         homeButton.setActionCommand("Home");
         homeButton.addActionListener(listener);
         gbc.gridx = 0;
-        gbc.gridy = 5;
+        gbc.gridy = 6;
         add(homeButton, gbc);
     }
 

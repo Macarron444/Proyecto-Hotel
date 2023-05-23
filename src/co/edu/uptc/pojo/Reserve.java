@@ -1,21 +1,23 @@
 package co.edu.uptc.pojo;
 
+import java.util.Date;
+
 public class Reserve {
-    private DateReservation reserveStart;
+    private Date reserveStart;
     private Room reservedRoom;
     private User user;
 
-    public Reserve(DateReservation reserveStart, Room reservedRoom, User user) {
+    public Reserve(Date reserveStart, Room reservedRoom, User user) {
         this.reserveStart = reserveStart;
         this.reservedRoom = reservedRoom;
         this.user = user;
     }
 
-    public DateReservation getReserveStart() {
+    public Date getReserveStart() {
         return reserveStart;
     }
 
-    public void setReserveStart(DateReservation reserveStart) {
+    public void setReserveStart(Date reserveStart) {
         this.reserveStart = reserveStart;
     }
 

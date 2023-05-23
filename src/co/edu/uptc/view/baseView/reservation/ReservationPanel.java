@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class ReservationPanel extends JPanel {
-
     private DateRPanel dateRPanel;
     private RoomsRPanel roomsRPanel;
 

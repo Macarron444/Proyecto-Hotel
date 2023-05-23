@@ -15,6 +15,7 @@ public class WelcomePanel extends JPanel {
         setMinimumSize(new Dimension(1235,565));
         setMaximumSize(new Dimension(1235,565));
         setPreferredSize(new Dimension(1235,565));
+
         initComponents(listener);
     }
 
