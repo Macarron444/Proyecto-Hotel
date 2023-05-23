@@ -6,9 +6,8 @@ import java.awt.*;
 public class RoomButton extends JButton {
     public RoomButton(String text){
         super(text);
-        setSize(52,45);
         setBackground(new Color(0x91DE8F));
-        setBorderPainted(false);
+        setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         setFocusPainted(false);
         setActionCommand("info");
     }

@@ -1,17 +1,21 @@
-package co.edu.uptc.model;
-
-import java.time.LocalDate;
+package co.edu.uptc.pojo;
 
 public class Reserve {
-    private LocalDate reserveStart;
+    private DateReservation reserveStart;
     private Room reservedRoom;
     private User user;
 
-    public LocalDate getReserveStart() {
+    public Reserve(DateReservation reserveStart, Room reservedRoom, User user) {
+        this.reserveStart = reserveStart;
+        this.reservedRoom = reservedRoom;
+        this.user = user;
+    }
+
+    public DateReservation getReserveStart() {
         return reserveStart;
     }
 
-    public void setReserveStart(LocalDate reserveStart) {
+    public void setReserveStart(DateReservation reserveStart) {
         this.reserveStart = reserveStart;
     }
 
@@ -28,12 +32,6 @@ public class Reserve {
     }
 
     public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Reserve(LocalDate reserveStart, Room reservedRoom, User user) {
-        this.reserveStart = reserveStart;
-        this.reservedRoom = reservedRoom;
         this.user = user;
     }
 }

@@ -1,10 +1,10 @@
-package co.edu.uptc.view.baseView.reservation;
+package co.edu.uptc.view.baseView.cancelation;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class DateRPanel extends JPanel{
+public class DateCPanel extends JPanel {
     private JLabel introLabel;
     private JLabel dayLabel;
     private JLabel monthLabel;
@@ -15,7 +15,7 @@ public class DateRPanel extends JPanel{
     private JSeparator separator;
     private JButton homeButton;
 
-    public DateRPanel(ActionListener listener){
+    public DateCPanel(ActionListener listener){
         setMinimumSize(new Dimension(358,565));
         setMaximumSize(new Dimension(358,565));
         setPreferredSize(new Dimension(358,565));

@@ -1,9 +1,26 @@
 package co.edu.uptc.view.baseView.cancelation;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class CancelPanel extends JPanel {
-    public CancelPanel(){
-        setSize(1280,670);
+    private DateCPanel dateCPanel;
+    private RoomsCPanel roomsCPanel;
+    public CancelPanel(ActionListener listener){
+        setMinimumSize(new Dimension(1235,565));
+        setMaximumSize(new Dimension(1235,565));
+        setPreferredSize(new Dimension(1235,565));
+        setVisible(false);
+        initComponents(listener);
+    }
+
+    public void initComponents(ActionListener listener) {
+        setLayout(new BorderLayout());
+        dateCPanel = new DateCPanel(listener);
+        add(dateCPanel, BorderLayout.WEST);
+        roomsCPanel = new RoomsCPanel();
+        JScrollPane scroll = new JScrollPane(roomsCPanel);
+        add(scroll, BorderLayout.CENTER);
     }
 }

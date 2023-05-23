@@ -1,5 +1,7 @@
 package co.edu.uptc.model;
 
+import co.edu.uptc.pojo.Room;
+
 import java.util.ArrayList;
 import java.util.Date;
 

@@ -1,10 +1,10 @@
-package co.edu.uptc.view.baseView.reservation;
+package co.edu.uptc.view.baseView.info;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class DateRPanel extends JPanel{
+public class DateIPanel extends JPanel {
     private JLabel introLabel;
     private JLabel dayLabel;
     private JLabel monthLabel;
@@ -15,7 +15,7 @@ public class DateRPanel extends JPanel{
     private JSeparator separator;
     private JButton homeButton;
 
-    public DateRPanel(ActionListener listener){
+    public DateIPanel(ActionListener listener){
         setMinimumSize(new Dimension(358,565));
         setMaximumSize(new Dimension(358,565));
         setPreferredSize(new Dimension(358,565));
@@ -27,8 +27,8 @@ public class DateRPanel extends JPanel{
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        introLabel = new JLabel("<html> <body>Seleccione una <br> fecha de reserva");
-        introLabel.setFont(new Font("Regular", Font.PLAIN, 32));
+        introLabel = new JLabel("<html> <body>Seleccione una <br> fecha para consultar <br> la habitacion");
+        introLabel.setFont(new Font("Regular", Font.PLAIN, 28));
         introLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
         gbc.gridy = 0;

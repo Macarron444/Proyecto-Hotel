@@ -1,35 +1,33 @@
-package co.edu.uptc.view.baseView.reservation;
-
+package co.edu.uptc.view.baseView.cancelation;
 
 import co.edu.uptc.pojo.Room;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.util.List;
 import java.util.LinkedList;
+import java.util.List;
 
-public class RoomsRPanel extends JPanel {
+public class RoomsCPanel extends JPanel {
     private List<Room> rooms;
-    public RoomsRPanel(ActionListener listener) {
+    public RoomsCPanel() {
         rooms = new LinkedList<>();
         setLayout(new GridBagLayout());
         setMinimumSize(new Dimension(877, 565));
         setMaximumSize(new Dimension(877, 565));
         setPreferredSize(new Dimension(877, 565));
         setBackground(Color.white);
-        initComponents(listener);
+        initComponents();
     }
 
-    public void initComponents(ActionListener listener) {
+    public void initComponents() {
         rooms = generate70Rooms();
-        generateButtons(listener);
+        generateButtons();
     }
 
     private List<Room> generate70Rooms() {
         List<Room> rooms = new LinkedList<>();
         for (int i = 0; i < 70; i++) {
-            rooms.add(new Room(101,"Simple", i % 4 == 0));
+            rooms.add(new Room(101,"Simple", false));
         }
         return rooms;
     }
@@ -42,7 +40,7 @@ public class RoomsRPanel extends JPanel {
         this.rooms = rooms;
     }
 
-    public void generateButtons(ActionListener listener) {
+    public void generateButtons() {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -52,15 +50,7 @@ public class RoomsRPanel extends JPanel {
         for (Room room : rooms) {
             JButton roomButton = new JButton("Room " + room.getNumber());
             roomButton.setActionCommand("info");
-            roomButton.setName(String.valueOf(rooms.indexOf(room)));
-            roomButton.addActionListener(listener);
-            if (room.isReserved()) {
-                roomButton.setForeground(Color.white);
-                roomButton.setBackground(new Color(0xF44336));
-            } else {
-                roomButton.setForeground(Color.black);
-                roomButton.setBackground(new Color(0x91DE8F));
-            }
+            roomButton.setBackground(new Color(0x91DE8F));
             add(roomButton, gbc);
             gbc.gridx++;
             if ((rooms.indexOf(room) + 1) % 7 == 0) {

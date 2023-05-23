@@ -32,11 +32,11 @@ public class HotelFrame extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 0;
         add(welcomePanel,gbc);
-        reservationPanel = new ReservationPanel();
+        reservationPanel = new ReservationPanel(listener);
         add(reservationPanel,gbc);
-        cancelPanel = new CancelPanel();
+        cancelPanel = new CancelPanel(listener);
         add(cancelPanel,gbc);
-        infoPanel = new InfoPanel();
+        infoPanel = new InfoPanel(listener);
         add(infoPanel,gbc);
         distributionPanel = new DistributionPanel();
         add(distributionPanel,gbc);
