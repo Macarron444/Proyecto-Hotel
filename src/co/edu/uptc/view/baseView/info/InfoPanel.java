@@ -23,7 +23,7 @@ public class InfoPanel extends JPanel {
         setLayout(new BorderLayout());
         dateIPanel = new DateIPanel(listener);
         add(dateIPanel, BorderLayout.WEST);
-        roomsIPanel = new RoomsIPanel();
+        roomsIPanel = new RoomsIPanel(listener);
         JScrollPane scroll = new JScrollPane(roomsIPanel);
         add(scroll, BorderLayout.CENTER);
     }

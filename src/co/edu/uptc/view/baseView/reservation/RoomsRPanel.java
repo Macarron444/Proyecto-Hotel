@@ -51,7 +51,7 @@ public class RoomsRPanel extends JPanel {
         gbc.insets = new Insets(5, 5, 5, 5);
         for (Room room : rooms) {
             JButton roomButton = new JButton("Room " + room.getNumber());
-            roomButton.setActionCommand("info");
+            roomButton.setActionCommand("reserveRoom");
             roomButton.setName(String.valueOf(rooms.indexOf(room)));
             roomButton.addActionListener(listener);
             if (room.isReserved()) {

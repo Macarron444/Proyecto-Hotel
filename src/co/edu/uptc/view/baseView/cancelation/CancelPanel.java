@@ -19,7 +19,7 @@ public class CancelPanel extends JPanel {
         setLayout(new BorderLayout());
         dateCPanel = new DateCPanel(listener);
         add(dateCPanel, BorderLayout.WEST);
-        roomsCPanel = new RoomsCPanel();
+        roomsCPanel = new RoomsCPanel(listener);
         JScrollPane scroll = new JScrollPane(roomsCPanel);
         add(scroll, BorderLayout.CENTER);
     }

@@ -4,24 +4,25 @@ import co.edu.uptc.pojo.Room;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 
 public class RoomsIPanel extends JPanel {
     private List<Room> rooms;
-    public RoomsIPanel() {
+    public RoomsIPanel(ActionListener listener) {
         rooms = new LinkedList<>();
         setLayout(new GridBagLayout());
         setMinimumSize(new Dimension(877, 565));
         setMaximumSize(new Dimension(877, 565));
         setPreferredSize(new Dimension(877, 565));
         setBackground(Color.white);
-        initComponents();
+        initComponents(listener);
     }
 
-    public void initComponents() {
+    public void initComponents(ActionListener listener) {
         rooms = generate70Rooms();
-        generateButtons();
+        generateButtons(listener);
     }
 
     private List<Room> generate70Rooms() {
@@ -40,7 +41,7 @@ public class RoomsIPanel extends JPanel {
         this.rooms = rooms;
     }
 
-    public void generateButtons() {
+    public void generateButtons(ActionListener listener) {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -49,7 +50,9 @@ public class RoomsIPanel extends JPanel {
         gbc.insets = new Insets(5, 5, 5, 5);
         for (Room room : rooms) {
             JButton roomButton = new JButton("Room " + room.getNumber());
-            roomButton.setActionCommand("info");
+            roomButton.setActionCommand("infoRoom");
+            roomButton.setName(String.valueOf(rooms.indexOf(room)));
+            roomButton.addActionListener(listener);
             roomButton.setBackground(new Color(0x91DE8F));
             add(roomButton, gbc);
             gbc.gridx++;

@@ -27,7 +27,7 @@ public class DateRPanel extends JPanel{
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        introLabel = new JLabel("<html> <body>Seleccione una <br> fecha de reserva");
+        introLabel = new JLabel("<html> <body> Seleccione una <br> fecha de reserva </body> </html>");
         introLabel.setFont(new Font("Regular", Font.PLAIN, 32));
         introLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;

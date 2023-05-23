@@ -21,7 +21,18 @@ public class Presenter implements ActionListener {
             case "cancel" -> hotelFrame.changePanel(hotelFrame.getCancelPanel());
             case "infoPanel" -> hotelFrame.changePanel(hotelFrame.getInfoPanel());
             case "distribution" -> hotelFrame.changePanel(hotelFrame.getDistributionPanel());
-            case "info" -> prints(e);
+            case "reserveRoom" -> {
+                prints(e);
+                System.out.println("reservation");
+            }
+            case "cancelRoom" ->{
+                prints(e);
+                System.out.println("Cancellation");
+            }
+            case "infoRoom" -> {
+                prints(e);
+                System.out.println("Information");
+            }
         }
     }
 

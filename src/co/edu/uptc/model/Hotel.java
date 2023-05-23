@@ -15,7 +15,6 @@ public class Hotel {
     public void reserveRoom(int roomNumber, Date reservation){
 
     }
-
     public void cancelReservation(int roomNumber, Date reservation){
 
     }
@@ -37,6 +36,4 @@ public class Hotel {
         }
         return info;
     }
-
-
 }
