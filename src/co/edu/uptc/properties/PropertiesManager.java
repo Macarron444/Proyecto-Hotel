@@ -14,5 +14,7 @@ public class PropertiesManager {
         messages.load(new FileReader("data/messages.properties"));
     }
 
-
+    public String jsonRoute(){
+        return messages.getProperty("hotelRoute");
+    }
 }
