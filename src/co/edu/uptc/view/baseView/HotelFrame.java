@@ -71,4 +71,40 @@ public class HotelFrame extends JFrame {
     public DistributionPanel getDistributionPanel() {
         return distributionPanel;
     }
+
+    public String getRDayText(){
+        return reservationPanel.getDayText();
+    }
+
+    public String getRMonthText(){
+        return reservationPanel.getMonthText();
+    }
+
+    public String getRYearText(){
+        return reservationPanel.getYearText();
+    }
+
+    public String getCDayText(){
+        return cancelPanel.getDayText();
+    }
+
+    public String getCMonthText(){
+        return cancelPanel.getMonthText();
+    }
+
+    public String getCYearText(){
+        return cancelPanel.getYearText();
+    }
+
+    public String getIDayText(){
+        return infoPanel.getDayText();
+    }
+
+    public String getIMonthText(){
+        return infoPanel.getMonthText();
+    }
+
+    public String getIYearText(){
+        return infoPanel.getYearText();
+    }
 }

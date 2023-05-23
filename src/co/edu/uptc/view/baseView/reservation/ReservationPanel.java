@@ -25,4 +25,16 @@ public class ReservationPanel extends JPanel {
         JScrollPane scroll = new JScrollPane(roomsRPanel);
         add(scroll, BorderLayout.CENTER);
     }
+
+    public String getDayText(){
+        return dateRPanel.getDayText();
+    }
+
+    public String getMonthText(){
+        return dateRPanel.getMonthText();
+    }
+
+    public String getYearText(){
+        return dateRPanel.getYearText();
+    }
 }

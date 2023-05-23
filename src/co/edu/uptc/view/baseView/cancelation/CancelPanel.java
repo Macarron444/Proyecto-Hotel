@@ -23,4 +23,16 @@ public class CancelPanel extends JPanel {
         JScrollPane scroll = new JScrollPane(roomsCPanel);
         add(scroll, BorderLayout.CENTER);
     }
+
+    public String getDayText(){
+        return dateCPanel.getDayText();
+    }
+
+    public String getMonthText(){
+        return dateCPanel.getMonthText();
+    }
+
+    public String getYearText(){
+        return dateCPanel.getYearText();
+    }
 }

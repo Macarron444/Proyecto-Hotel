@@ -27,4 +27,16 @@ public class InfoPanel extends JPanel {
         JScrollPane scroll = new JScrollPane(roomsIPanel);
         add(scroll, BorderLayout.CENTER);
     }
+
+    public String getDayText(){
+        return dateIPanel.getDayText();
+    }
+
+    public String getMonthText(){
+        return dateIPanel.getMonthText();
+    }
+
+    public String getYearText(){
+        return dateIPanel.getYearText();
+    }
 }

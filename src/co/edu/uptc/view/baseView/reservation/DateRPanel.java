@@ -45,7 +45,6 @@ public class DateRPanel extends JPanel{
         add(dayLabel, gbc);
 
         dayText = new JTextField(10);
-        dayText.setBackground(new Color(0xD9D9D9));
         gbc.gridx = 1;
         gbc.gridy = 1;
         add(dayText, gbc);
@@ -79,6 +78,7 @@ public class DateRPanel extends JPanel{
         separator.setMaximumSize(new Dimension(10,153));
         separator.setPreferredSize(new Dimension(10,153));
         separator.setBackground(new Color(253, 253, 253, 0));
+        separator.setForeground(new Color(0,0,0,0));
         gbc.gridx = 0;
         gbc.gridy = 4;
         add(separator, gbc);
@@ -91,5 +91,17 @@ public class DateRPanel extends JPanel{
         gbc.gridx = 0;
         gbc.gridy = 5;
         add(homeButton, gbc);
+    }
+
+    public String getDayText(){
+        return dayText.getText();
+    }
+
+    public String getMonthText(){
+        return monthText.getText();
+    }
+
+    public String getYearText(){
+        return yearText.getText();
     }
 }

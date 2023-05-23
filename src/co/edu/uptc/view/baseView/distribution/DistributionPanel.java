@@ -22,10 +22,12 @@ public class DistributionPanel extends JPanel {
     }
 
     public void initComponents() {
-        setLayout(new FlowLayout());
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
 
         distribution = new JLabel("Distribucion de habitaciones por piso");
         distribution.setFont(new Font("Arial", Font.BOLD, 32));
+
         add(distribution);
 
         single1 = new InfoRoomLabel("Sencilla", 1, 1, "$150.000");
