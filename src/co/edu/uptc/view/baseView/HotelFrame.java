@@ -2,8 +2,10 @@ package co.edu.uptc.view.baseView;
 
 import co.edu.uptc.view.baseView.cancelation.CancelPanel;
 import co.edu.uptc.view.baseView.distribution.DistributionPanel;
+import co.edu.uptc.view.baseView.info.InfoDialog;
 import co.edu.uptc.view.baseView.info.InfoPanel;
 import co.edu.uptc.view.baseView.reservation.ReservationPanel;
+import co.edu.uptc.view.baseView.reservation.UserRDialog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +17,8 @@ public class HotelFrame extends JFrame {
     private CancelPanel cancelPanel;
     private InfoPanel infoPanel;
     private DistributionPanel distributionPanel;
+    private UserRDialog userRDialog;
+    private InfoDialog infoDialog;
     public HotelFrame(ActionListener listener){
         super("Hotel Reservation");
         setSize(1235,565);
@@ -40,6 +44,8 @@ public class HotelFrame extends JFrame {
         add(infoPanel,gbc);
         distributionPanel = new DistributionPanel(listener);
         add(distributionPanel,gbc);
+        userRDialog = new UserRDialog(this, true, listener);
+        infoDialog = new InfoDialog(this,true);
     }
 
     public void changePanel(JPanel panel){
@@ -48,7 +54,6 @@ public class HotelFrame extends JFrame {
         cancelPanel.setVisible(false);
         infoPanel.setVisible(false);
         distributionPanel.setVisible(false);
-
         panel.setVisible(true);
     }
 
@@ -106,5 +111,29 @@ public class HotelFrame extends JFrame {
 
     public String getIYearText(){
         return infoPanel.getYearText();
+    }
+
+    public void showDialog(){
+        userRDialog.setVisible(true);
+    }
+
+    public void closeDialog() {
+        userRDialog.setVisible(false);
+    }
+
+    public String getNameText(){
+        return userRDialog.getNameText();
+    }
+
+    public String getIdText(){
+        return userRDialog.getIdText();
+    }
+
+    public String getPhoneText(){
+        return userRDialog.getPhoneText();
+    }
+    public void setInfoDialogText(String info){
+        infoDialog.setVisible(true);
+        infoDialog.setRoomInfo(info);
     }
 }

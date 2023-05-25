@@ -7,6 +7,8 @@ import co.edu.uptc.view.baseView.HotelFrame;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,7 +17,7 @@ public class Presenter implements ActionListener {
     private HotelFrame hotelFrame;
     private Hotel hotel;
 
-    public Presenter() {
+    public Presenter() throws IOException {
         hotelFrame = new HotelFrame(this);
         hotel = new Hotel();
 
@@ -23,9 +25,6 @@ public class Presenter implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int reservationYear = Integer.parseInt(hotelFrame.getRYearText());
-        int reservationMonth = Integer.parseInt(hotelFrame.getRMonthText());
-        int reservationDay = Integer.parseInt(hotelFrame.getRDayText());
         switch (e.getActionCommand()) {
             case "Home" -> hotelFrame.changePanel(hotelFrame.getWelcomePanel());
             case "reserve" -> hotelFrame.changePanel(hotelFrame.getReservationPanel());
@@ -41,14 +40,16 @@ public class Presenter implements ActionListener {
                 System.out.println("Cancellation");
             }
             case "infoRoom" -> {
-                prints(e);
-                System.out.println("Information");
+                System.out.println(hotel.roomInfo(prints(e)));
+                hotelFrame.setInfoDialogText(hotel.roomInfo(prints(e)));
             }
             case "search" -> {
-                Date reservationDate = createRDate(reservationDay, reservationMonth, reservationYear);
-
                 System.out.println("buscar");
             }
+            case "DoReserve" -> {
+                doReservation();
+            }
+            case "exit" -> hotelFrame.closeDialog();
         }
     }
 
@@ -64,20 +65,22 @@ public class Presenter implements ActionListener {
         }
         return fecha;
     }
-
     public void doReservation() {
         User user = new User("jorge", "981724", 34);
         //hotel.reserveRoom();
     }
 
-    private void prints(ActionEvent e) {
+    private int prints(ActionEvent e) {
+        int pos = 0;
         if (e.getSource() instanceof JButton) {
-
-            System.out.println(((JButton) e.getSource()).getName());
+            JButton button = (JButton) e.getSource();
+            String name = button.getName();
+            pos = Integer.parseInt(name);
         }
+        return pos;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new Presenter();
     }
 

@@ -1,10 +1,12 @@
 package co.edu.uptc.view.baseView.reservation;
 
+import co.edu.uptc.view.baseView.HotelFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class UserRPanel extends JDialog {
+public class UserRDialog extends JDialog {
     private JLabel nameLabel;
     private JLabel idLabel;
     private JLabel phoneLabel;
@@ -14,7 +16,8 @@ public class UserRPanel extends JDialog {
     private JButton reserveButton;
     private JButton exitButton;
 
-    public UserRPanel(ActionListener listener){
+    public UserRDialog(HotelFrame view, boolean modal, ActionListener listener){
+        super(view, modal);
         setSize(400, 300);
         initComponents(listener);
         setLocationRelativeTo(null);
@@ -67,5 +70,17 @@ public class UserRPanel extends JDialog {
         gbc.gridx = 1;
         gbc.gridy = 3;
         add(exitButton, gbc);
+    }
+
+    public String getNameText(){
+        return nameText.getText();
+    }
+
+    public String getIdText(){
+        return idText.getText();
+    }
+
+    public String getPhoneText(){
+        return phoneText.getText();
     }
 }

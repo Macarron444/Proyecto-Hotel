@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 public class ReservationPanel extends JPanel {
     private DateRPanel dateRPanel;
     private RoomsRPanel roomsRPanel;
-
     public ReservationPanel(ActionListener listener) {
         setMinimumSize(new Dimension(1235, 565));
         setMaximumSize(new Dimension(1235, 565));
