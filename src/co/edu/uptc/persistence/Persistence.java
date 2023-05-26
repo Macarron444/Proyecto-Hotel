@@ -7,12 +7,9 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Persistence {
-    private JsonReader hotelReader;
-    private JsonReader reservesReader;
     private List<Room> jsonRooms;
     private List<Reserve> jsonReserves;
     private PropertiesManager properties;
@@ -20,9 +17,8 @@ public class Persistence {
     public Persistence() throws IOException {
         properties = new PropertiesManager();
         properties.loader();
-        reservesReader = new Gson().newJsonReader(new FileReader(properties.reservesRoute()));
         jsonRooms = List.of(new Gson().fromJson(new BufferedReader(new FileReader(properties.hotelRoute())), Room[].class));
-        jsonReserves = new Gson().fromJson(reservesReader, Reserve[].class);
+        jsonReserves = List.of(new Gson().fromJson(new BufferedReader(new FileReader(properties.reservesRoute())), Reserve[].class));
     }
 
     public PropertiesManager getProperties() {

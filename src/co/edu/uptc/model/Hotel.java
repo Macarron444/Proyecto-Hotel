@@ -6,7 +6,10 @@ import co.edu.uptc.pojo.Room;
 import co.edu.uptc.pojo.User;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -24,32 +27,65 @@ public class Hotel {
         return rooms;
     }
 
-    public void reserveRoom(int roomNumber, Date reservation, User user){
-
+    public Reserve reserveRoom(int roomNumber, Date reservation, User user){
+        int day = dateToDay(reservation);
+        int month = dateToMonth(reservation);
+        int year = dateToYear(reservation);
+        return new Reserve(day,month,year, getRoom(roomNumber), user);
     }
     public void cancelReservation(int roomNumber, Date reservation){
 
     }
-
-    public List<Room> showRooms(Date roomsDate){
-        List<Room> reservedRooms = new ArrayList<>();
-        for (int i = 0; i < reserves.size(); i++) {
-            if (reserves.get(i).getReserveStart().compareTo(roomsDate) == 0){
-                Room reservedRoom = reserves.get(i).getReservedRoom();
-                reservedRooms.add(reservedRoom);
-            }
+    public Date createDate(int dia, int mes, int anio) {
+        Date fecha = null;
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaString = String.format("%02d/%02d/%04d", dia, mes, anio);
+        try {
+            fecha = formatoFecha.parse(fechaString);
+            System.out.println(fecha);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-        return reservedRooms;
+        return fecha;
     }
 
-    public int roomsReserved(){
-        int reserved = 0;
-        for (Room room : rooms) {
-            if (room.isReserved()) {
-                reserved++;
+    public Date reserveIntToDate(int day, int month, int year){
+        Date date = null;
+        for (Reserve reserve : reserves) {
+            day = reserve.getDay();
+            month = reserve.getMonth();
+            year = reserve.getYear();
+
+            date = createDate(day, month, year);
+        }
+        return date;
+    }
+
+    public Room getRoom(int roomNumber){
+        for (Room room:rooms){
+            if (room.getNumber() == roomNumber){
+                return room;
             }
         }
-        return reserved;
+        return null;
+    }
+
+    public int dateToDay(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public int dateToMonth(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.MONTH) + 1;
+    }
+
+    public int dateToYear(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.YEAR);
     }
 
     public String roomInfo(int roomNumber){

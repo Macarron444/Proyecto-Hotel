@@ -1,427 +1,412 @@
 [
   {
     "number": 101,
-    "reservationDate": null,
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 102,
-    "reservationDate": [
-      {
-        "day": 14,
-        "month": 10,
-        "year": 2024
-      }
-    ],
     "roomType": "Sencilla",
-    "isReserved": true
+    "isReserved": false
   },
   {
     "number": 103,
-    "reservationDate": null,
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 104,
-    "reservationDate": null,
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 105,
-    "reservationDate": null,
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 106,
-    "reservationDate": null,
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 107,
-    "reservationDate": null,
     "roomType": "Suite",
     "isReserved": false
   },
   {
     "number": 201,
-    "reservationDate": null,
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 202,
-    "reservationDate": null,
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 203,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 204,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 205,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 206,
-    "reservationDate": null,
+    
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 207,
-    "reservationDate": null,
+    
     "roomType": "Suite",
     "isReserved": false
   },
   {
     "number": 301,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 302,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 303,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 304,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 305,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 306,
-    "reservationDate": null,
+    
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 307,
-    "reservationDate": null,
+    
     "roomType": "Suite",
     "isReserved": false
   },
   {
     "number": 401,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 402,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 403,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 404,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 405,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 406,
-    "reservationDate": null,
+    
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 407,
-    "reservationDate": null,
+    
     "roomType": "Suite",
     "isReserved": false
   },
   {
     "number": 501,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 502,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 503,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 504,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 505,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 506,
-    "reservationDate": null,
+    
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 507,
-    "reservationDate": null,
+    
     "roomType": "Suite",
     "isReserved": false
   },
   {
     "number": 601,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 602,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 603,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 604,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 605,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 606,
-    "reservationDate": null,
+    
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 607,
-    "reservationDate": null,
+    
     "roomType": "Suite",
     "isReserved": false
   },
   {
     "number": 701,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 702,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 703,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 704,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 705,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 706,
-    "reservationDate": null,
+    
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 707,
-    "reservationDate": null,
+    
     "roomType": "Suite",
     "isReserved": false
   },
   {
     "number": 801,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 802,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 803,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 804,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 805,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 806,
-    "reservationDate": null,
+    
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 807,
-    "reservationDate": null,
+    
     "roomType": "Suite",
     "isReserved": false
   },
   {
     "number": 901,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 902,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 903,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 904,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 905,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 906,
-    "reservationDate": null,
+    
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 907,
-    "reservationDate": null,
+    
     "roomType": "Suite",
     "isReserved": false
   },
   {
     "number": 1001,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 1002,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 1003,
-    "reservationDate": null,
+    
     "roomType": "Sencilla",
     "isReserved": false
   },
   {
     "number": 1004,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 1005,
-    "reservationDate": null,
+    
     "roomType": "Doble",
     "isReserved": false
   },
   {
     "number": 1006,
-    "reservationDate": null,
+    
     "roomType": "Matrimonial",
     "isReserved": false
   },
   {
     "number": 1007,
-    "reservationDate": null,
+    
     "roomType": "Suite",
     "isReserved": false
   }

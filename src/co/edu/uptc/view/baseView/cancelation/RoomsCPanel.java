@@ -1,17 +1,21 @@
 package co.edu.uptc.view.baseView.cancelation;
 
+import co.edu.uptc.persistence.Persistence;
 import co.edu.uptc.pojo.Room;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
 public class RoomsCPanel extends JPanel {
     private List<Room> rooms;
-    public RoomsCPanel(ActionListener listener) {
-        rooms = new LinkedList<>();
+    private Persistence persistence;
+    public RoomsCPanel(ActionListener listener) throws IOException {
+        persistence = new Persistence();
+        rooms = persistence.getJsonRooms();
         setLayout(new GridBagLayout());
         setMinimumSize(new Dimension(877, 565));
         setMaximumSize(new Dimension(877, 565));
@@ -21,16 +25,7 @@ public class RoomsCPanel extends JPanel {
     }
 
     public void initComponents(ActionListener listener) {
-        rooms = generate70Rooms();
         generateButtons(listener);
-    }
-
-    private List<Room> generate70Rooms() {
-        List<Room> rooms = new LinkedList<>();
-        for (int i = 0; i < 70; i++) {
-            rooms.add(new Room(101,"Simple", false));
-        }
-        return rooms;
     }
 
     public List<Room> getRooms() {

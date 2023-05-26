@@ -1,24 +1,18 @@
 package co.edu.uptc.pojo;
 
-import java.util.Date;
-
 public class Reserve {
-    private Date reserveStart;
+    private int day;
+    private int month;
+    private int year;
     private Room reservedRoom;
     private User user;
 
-    public Reserve(Date reserveStart, Room reservedRoom, User user) {
-        this.reserveStart = reserveStart;
+    public Reserve(int day, int month, int year, Room reservedRoom, User user) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
         this.reservedRoom = reservedRoom;
         this.user = user;
-    }
-
-    public Date getReserveStart() {
-        return reserveStart;
-    }
-
-    public void setReserveStart(Date reserveStart) {
-        this.reserveStart = reserveStart;
     }
 
     public Room getReservedRoom() {
@@ -35,5 +29,40 @@ public class Reserve {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return "Reserve{" +
+                "day=" + day +
+                ", month=" + month +
+                ", year=" + year +
+                ", reservedRoom=" + reservedRoom +
+                ", user=" + user +
+                '}';
     }
 }

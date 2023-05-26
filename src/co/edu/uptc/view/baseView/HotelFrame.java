@@ -10,6 +10,7 @@ import co.edu.uptc.view.baseView.reservation.UserRDialog;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class HotelFrame extends JFrame {
     private WelcomePanel welcomePanel;
@@ -19,7 +20,7 @@ public class HotelFrame extends JFrame {
     private DistributionPanel distributionPanel;
     private UserRDialog userRDialog;
     private InfoDialog infoDialog;
-    public HotelFrame(ActionListener listener){
+    public HotelFrame(ActionListener listener) throws IOException {
         super("Hotel Reservation");
         setSize(1235,565);
         initComponents(listener);
@@ -28,7 +29,7 @@ public class HotelFrame extends JFrame {
         setVisible(true);
     }
 
-    public void initComponents(ActionListener listener){
+    public void initComponents(ActionListener listener) throws IOException {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
@@ -113,7 +114,7 @@ public class HotelFrame extends JFrame {
         return infoPanel.getYearText();
     }
 
-    public void showDialog(){
+    public void showUserRDialog(){
         userRDialog.setVisible(true);
     }
 
@@ -133,7 +134,7 @@ public class HotelFrame extends JFrame {
         return userRDialog.getPhoneText();
     }
     public void setInfoDialogText(String info){
-        infoDialog.setVisible(true);
         infoDialog.setRoomInfo(info);
+        infoDialog.setVisible(true);
     }
 }

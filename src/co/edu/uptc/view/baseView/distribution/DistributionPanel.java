@@ -30,12 +30,14 @@ public class DistributionPanel extends JPanel {
         distribution.setFont(new Font("Arial", Font.BOLD, 32));
         gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.gridwidth = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(distribution, gbc);
 
         single1 = new InfoRoomLabel("Sencilla", 1, 1, "$150.000");
         gbc.gridx = 0;
         gbc.gridy = 1;
+        gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.NONE;
         add(single1, gbc);
 
@@ -62,12 +64,12 @@ public class DistributionPanel extends JPanel {
         marital = new InfoRoomLabel("Matrimonial", 1, 2, "$250.000");
         gbc.gridx = 1;
         gbc.gridy = 2;
-        add(marital);
+        add(marital, gbc);
 
         suite = new InfoRoomLabel("Suite", 2, 2, "$400.000");
         gbc.gridx = 2;
         gbc.gridy = 2;
-        add(suite);
+        add(suite, gbc);
 
         home = new JButton("Home");
         gbc.gridx = 4;

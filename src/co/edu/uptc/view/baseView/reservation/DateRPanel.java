@@ -33,6 +33,7 @@ public class DateRPanel extends JPanel{
         introLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
         gbc.gridy = 0;
+        gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.CENTER;
         add(introLabel, gbc);
@@ -42,6 +43,7 @@ public class DateRPanel extends JPanel{
         dayLabel.setForeground(Color.white);
         gbc.gridx = 0;
         gbc.gridy = 1;
+        gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.NONE;
         add(dayLabel, gbc);
 
