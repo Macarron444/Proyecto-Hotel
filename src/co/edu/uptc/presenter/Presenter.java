@@ -22,6 +22,7 @@ public class Presenter implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        int pos = 0;
         switch (e.getActionCommand()) {
             case "Home" -> hotelFrame.changePanel(hotelFrame.getWelcomePanel());
             case "reserve" -> hotelFrame.changePanel(hotelFrame.getReservationPanel());
@@ -34,11 +35,12 @@ public class Presenter implements ActionListener {
             }
             case "cancelRoom" -> System.out.println("Cancellation");
             case "infoRoom" -> {
+                pos = prints(e);
                 System.out.println(hotel.roomInfo(prints(e)));
                 hotelFrame.setInfoDialogText(hotel.roomInfo(prints(e)));
             }
             case "search" -> System.out.println("buscar");
-            case "DoReserve" -> hotel.addReserve(createReserve(hotel.getRoomNumber(prints(e)), createRDate(), createUser()));
+            case "DoReserve" -> hotel.addReserve(createReserve(hotel.getRoomNumber(pos), createRDate(), createUser()));
             case "exit" -> {
                 hotelFrame.closeDialog();
                 try {
@@ -72,7 +74,7 @@ public class Presenter implements ActionListener {
 
 
 
-    private int prints(ActionEvent e) {
+    public int prints(ActionEvent e) {
         int pos = 0;
         if (e.getSource() instanceof JButton) {
             JButton button = (JButton) e.getSource();

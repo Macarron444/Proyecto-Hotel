@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.List;
-import java.util.LinkedList;
 
 public class RoomsRPanel extends JPanel {
     private List<Room> rooms;

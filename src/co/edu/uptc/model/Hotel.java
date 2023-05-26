@@ -20,8 +20,8 @@ public class Hotel {
 
     public Hotel() throws IOException {
         persistence = new Persistence();
-        rooms = persistence.getJsonRooms();
-        reserves = persistence.getJsonReserves();
+        rooms = new ArrayList<>(persistence.getJsonRooms());
+        reserves = new ArrayList<>(persistence.getJsonReserves());
     }
     public List<Room> getRooms() {
         return rooms;
@@ -102,7 +102,7 @@ public class Hotel {
                 return room.getNumber();
             }
         }
-        return Integer.parseInt(null);
+        return -1;
     }
 
     public void saveData() throws IOException {
