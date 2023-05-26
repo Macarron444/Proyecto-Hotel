@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomsRPanel extends JPanel {
@@ -15,7 +16,7 @@ public class RoomsRPanel extends JPanel {
     private Persistence persistence;
     public RoomsRPanel(ActionListener listener) throws IOException {
         persistence = new Persistence();
-        rooms = persistence.getJsonRooms();
+        rooms = new ArrayList<>(persistence.getJsonRooms());
         setLayout(new GridBagLayout());
         setMinimumSize(new Dimension(877, 565));
         setMaximumSize(new Dimension(877, 565));
@@ -46,6 +47,7 @@ public class RoomsRPanel extends JPanel {
         for (Room room : rooms) {
             JButton roomButton = new JButton("Room " + room.getNumber());
             roomButton.setActionCommand("reserveRoom");
+            System.out.println(rooms.indexOf(room));
             roomButton.setName(String.valueOf(rooms.indexOf(room)));
             roomButton.addActionListener(listener);
             if (room.isReserved()) {

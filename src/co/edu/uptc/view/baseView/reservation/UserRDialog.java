@@ -72,6 +72,10 @@ public class UserRDialog extends JDialog {
         add(exitButton, gbc);
     }
 
+    public JButton getReserveButton() {
+        return reserveButton;
+    }
+
     public String getNameText(){
         return nameText.getText();
     }

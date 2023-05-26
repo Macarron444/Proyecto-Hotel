@@ -36,6 +36,7 @@ public class Hotel {
         int day = dateToDay(reservation);
         int month = dateToMonth(reservation);
         int year = dateToYear(reservation);
+        System.out.println(roomNumber + "metodo reserveRoom");
         return new Reserve(day,month,year, getRoom(roomNumber), user);
     }
     public void cancelReservation(int roomNumber, Date reservation){
@@ -47,7 +48,6 @@ public class Hotel {
         String fechaString = String.format("%02d/%02d/%04d", dia, mes, anio);
         try {
             fecha = formatoFecha.parse(fechaString);
-            System.out.println(fecha);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -61,7 +61,7 @@ public class Hotel {
     }
 
     public Room getRoom(int roomNumber){
-        System.out.println(roomNumber);
+        System.out.println(roomNumber + "metodo getRoom");
         for (Room room:rooms){
             if (room.getNumber() == roomNumber){
                 return room;
@@ -97,6 +97,8 @@ public class Hotel {
     public int getRoomNumber(int roomNumber){
         for (Room room:rooms){
             if (Arrays.asList(rooms).indexOf(room) == roomNumber){
+                System.out.println(Arrays.asList(rooms).indexOf(room));
+                System.out.println(roomNumber);
                 return room.getNumber();
             }
         }

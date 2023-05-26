@@ -137,4 +137,8 @@ public class HotelFrame extends JFrame {
         infoDialog.setRoomInfo(info);
         infoDialog.setVisible(true);
     }
+
+    public JButton getReserveDialogButton(){
+        return userRDialog.getReserveButton();
+    }
 }

@@ -14,6 +14,7 @@ import java.util.Date;
 public class Presenter implements ActionListener {
     private HotelFrame hotelFrame;
     private Hotel hotel;
+        int pos = 10;
 
     public Presenter() throws IOException {
         hotelFrame = new HotelFrame(this);
@@ -22,7 +23,6 @@ public class Presenter implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int pos = 0;
         switch (e.getActionCommand()) {
             case "Home" -> hotelFrame.changePanel(hotelFrame.getWelcomePanel());
             case "reserve" -> hotelFrame.changePanel(hotelFrame.getReservationPanel());
@@ -31,16 +31,23 @@ public class Presenter implements ActionListener {
             case "distribution" -> hotelFrame.changePanel(hotelFrame.getDistributionPanel());
             case "reserveRoom" -> {
                 System.out.println("reservation");
+                pos = prints(e);
+                System.out.println(pos + " me la pela");
+                System.out.println(hotel.roomInfo(prints(e)));
+                hotelFrame.getReserveDialogButton().setName(printString(e));
                 hotelFrame.showUserRDialog();
             }
             case "cancelRoom" -> System.out.println("Cancellation");
             case "infoRoom" -> {
-                System.out.println(hotel.roomInfo(prints(e)));
                 hotelFrame.setInfoDialogText(hotel.roomInfo(prints(e)));
+                pos=prints(e);
+                System.out.println(pos + "me la pela");
             }
             case "search" -> System.out.println("buscar");
             case "DoReserve" -> {
-                hotel.addReserve(createReserve(hotel.getRoomNumber(pos), createRDate(), createUser()));
+                System.out.println(pos);
+                System.out.println("asdsg "+hotel.getRoomNumber(this.pos));
+                hotel.addReserve(createReserve(hotel.getRoomNumber(this.pos), createRDate(), createUser()));
             }
             case "exit" -> {
                 hotelFrame.closeDialog();
@@ -55,6 +62,7 @@ public class Presenter implements ActionListener {
 
     public Reserve createReserve(int roomNumber, Date date, User user){
         Reserve reserve = null;
+        System.out.println(roomNumber + "createReserve");
         reserve = hotel.reserveRoom(roomNumber, date, user);
         return reserve;
     }
@@ -80,9 +88,18 @@ public class Presenter implements ActionListener {
         if (e.getSource() instanceof JButton) {
             JButton button = (JButton) e.getSource();
             String name = button.getName();
+            System.out.println(name + " metodo prints");
             pos = Integer.parseInt(name);
         }
         return pos;
+    }
+
+    public String printString(ActionEvent e){
+        if (e.getSource() instanceof JButton){
+            JButton button = (JButton) e.getSource();
+            return button.getName();
+        }
+        return null;
     }
 
     public static void main(String[] args) throws IOException {
