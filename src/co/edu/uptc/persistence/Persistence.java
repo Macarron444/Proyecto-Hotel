@@ -5,7 +5,6 @@ import co.edu.uptc.pojo.Room;
 import co.edu.uptc.properties.PropertiesManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonReader;
 
 import java.io.*;
 import java.util.List;

@@ -35,12 +35,13 @@ public class Presenter implements ActionListener {
             }
             case "cancelRoom" -> System.out.println("Cancellation");
             case "infoRoom" -> {
-                pos = prints(e);
                 System.out.println(hotel.roomInfo(prints(e)));
                 hotelFrame.setInfoDialogText(hotel.roomInfo(prints(e)));
             }
             case "search" -> System.out.println("buscar");
-            case "DoReserve" -> hotel.addReserve(createReserve(hotel.getRoomNumber(pos), createRDate(), createUser()));
+            case "DoReserve" -> {
+                hotel.addReserve(createReserve(hotel.getRoomNumber(pos), createRDate(), createUser()));
+            }
             case "exit" -> {
                 hotelFrame.closeDialog();
                 try {

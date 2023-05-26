@@ -8,10 +8,7 @@ import co.edu.uptc.pojo.User;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Hotel {
     private List<Room> rooms;
@@ -64,6 +61,7 @@ public class Hotel {
     }
 
     public Room getRoom(int roomNumber){
+        System.out.println(roomNumber);
         for (Room room:rooms){
             if (room.getNumber() == roomNumber){
                 return room;
@@ -98,7 +96,7 @@ public class Hotel {
 
     public int getRoomNumber(int roomNumber){
         for (Room room:rooms){
-            if (room.getNumber() == roomNumber){
+            if (Arrays.asList(rooms).indexOf(room) == roomNumber){
                 return room.getNumber();
             }
         }

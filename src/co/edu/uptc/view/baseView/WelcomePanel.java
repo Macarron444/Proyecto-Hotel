@@ -26,7 +26,7 @@ public class WelcomePanel extends JPanel {
         welcomeLabel = new JLabel(
                 "<html>" +
                         "<body>" +
-                        "<h2>Bienvenido al hotel *nombre* <br> En que podemos ayudarte?</h2>" +
+                        "<h2>Bienvenido al hotel UPTC <br> En que podemos ayudarte?</h2>" +
                         "</body>" +
                         "</html>");
         gbc.gridx = 1;
