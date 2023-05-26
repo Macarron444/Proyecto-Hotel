@@ -4,6 +4,7 @@ import co.edu.uptc.pojo.Reserve;
 import co.edu.uptc.pojo.Room;
 import co.edu.uptc.properties.PropertiesManager;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
 import java.io.*;
@@ -41,10 +42,10 @@ public class Persistence {
         this.jsonReserves = jsonReserves;
     }
 
-    public void writeReserves(Reserve reserve) throws FileNotFoundException {
-        String json = new Gson().toJson(reserve);
-        PrintWriter print = new PrintWriter(properties.reservesRoute());
-        print.write(json);
-        print.close();
+    public void saveData(List<Reserve> reserves) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        FileWriter reserveWriter = new FileWriter(properties.reservesRoute());
+        reserveWriter.write(gson.toJson(reserves));
+        reserveWriter.close();
     }
 }

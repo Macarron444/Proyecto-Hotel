@@ -21,10 +21,18 @@ public class Hotel {
     public Hotel() throws IOException {
         persistence = new Persistence();
         rooms = persistence.getJsonRooms();
-        reserves = new ArrayList<>();
+        reserves = persistence.getJsonReserves();
     }
     public List<Room> getRooms() {
         return rooms;
+    }
+
+    public List<Reserve> getReserves() {
+        return reserves;
+    }
+
+    public void addReserve(Reserve reserve){
+        reserves.add(reserve);
     }
 
     public Reserve reserveRoom(int roomNumber, Date reservation, User user){
@@ -49,16 +57,10 @@ public class Hotel {
         return fecha;
     }
 
-    public Date reserveIntToDate(int day, int month, int year){
-        Date date = null;
-        for (Reserve reserve : reserves) {
-            day = reserve.getDay();
-            month = reserve.getMonth();
-            year = reserve.getYear();
-
-            date = createDate(day, month, year);
-        }
-        return date;
+    public User createUser(String name, String phoneNumber, int id){
+        User user = null;
+        user = new User(name, phoneNumber, id);
+        return user;
     }
 
     public Room getRoom(int roomNumber){
@@ -94,21 +96,17 @@ public class Hotel {
         return info;
     }
 
-    public int getSearchedRoom(int roomNumber){
-        for (Room room :rooms) {
-            if (room.getNumber()==roomNumber) return rooms.indexOf(room);
-        }
-        int pos = -1;
-        Room searchedRoom;
-        int i = 0;
-        while (pos == -1 && i<rooms.size()){
-            searchedRoom = rooms.get(i);
-            if (searchedRoom.getNumber() == roomNumber){
-                pos = rooms.indexOf(searchedRoom);
+    public int getRoomNumber(int roomNumber){
+        for (Room room:rooms){
+            if (room.getNumber() == roomNumber){
+                return room.getNumber();
             }
-            i++;
         }
-        return pos;
+        return Integer.parseInt(null);
+    }
+
+    public void saveData() throws IOException {
+        new Persistence().saveData(reserves);
     }
 
     public String getRoomInfo(int pos){

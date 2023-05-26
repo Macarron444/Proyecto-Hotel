@@ -1,12 +1,15 @@
 package co.edu.uptc.presenter;
 
 import co.edu.uptc.model.Hotel;
+import co.edu.uptc.pojo.Reserve;
+import co.edu.uptc.pojo.User;
 import co.edu.uptc.view.baseView.HotelFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Date;
 
 public class Presenter implements ActionListener {
     private HotelFrame hotelFrame;
@@ -15,7 +18,6 @@ public class Presenter implements ActionListener {
     public Presenter() throws IOException {
         hotelFrame = new HotelFrame(this);
         hotel = new Hotel();
-
     }
 
     @Override
@@ -30,21 +32,42 @@ public class Presenter implements ActionListener {
                 System.out.println("reservation");
                 hotelFrame.showUserRDialog();
             }
-            case "cancelRoom" -> {
-                System.out.println("Cancellation");
-            }
+            case "cancelRoom" -> System.out.println("Cancellation");
             case "infoRoom" -> {
                 System.out.println(hotel.roomInfo(prints(e)));
                 hotelFrame.setInfoDialogText(hotel.roomInfo(prints(e)));
             }
-            case "search" -> {
-                System.out.println("buscar");
+            case "search" -> System.out.println("buscar");
+            case "DoReserve" -> hotel.addReserve(createReserve(hotel.getRoomNumber(prints(e)), createRDate(), createUser()));
+            case "exit" -> {
+                hotelFrame.closeDialog();
+                try {
+                    hotel.saveData();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
-            case "DoReserve" -> {
-
-            }
-            case "exit" -> hotelFrame.closeDialog();
         }
+    }
+
+    public Reserve createReserve(int roomNumber, Date date, User user){
+        Reserve reserve = null;
+        reserve = hotel.reserveRoom(roomNumber, date, user);
+        return reserve;
+    }
+
+    public User createUser(){
+        String name = hotelFrame.getNameText();
+        String phone = hotelFrame.getPhoneText();
+        int id = Integer.parseInt(hotelFrame.getIdText());
+        return hotel.createUser(name, phone, id);
+    }
+
+    public Date createRDate(){
+        int day = Integer.parseInt(hotelFrame.getRDayText());
+        int month = Integer.parseInt(hotelFrame.getRMonthText());
+        int year = Integer.parseInt(hotelFrame.getRYearText());
+        return hotel.createDate(day, month, year);
     }
 
 
