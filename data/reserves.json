@@ -348,5 +348,35 @@
       "phoneNumber": "76543",
       "id": 123456
     }
+  },
+  {
+    "day": 6,
+    "month": 7,
+    "year": 2023,
+    "reservedRoom": {
+      "number": 402,
+      "roomType": "Sencilla",
+      "isReserved": false
+    },
+    "user": {
+      "name": "Laura",
+      "phoneNumber": "23456",
+      "id": 65432
+    }
+  },
+  {
+    "day": 8,
+    "month": 12,
+    "year": 2023,
+    "reservedRoom": {
+      "number": 101,
+      "roomType": "Sencilla",
+      "isReserved": false
+    },
+    "user": {
+      "name": "Laura",
+      "phoneNumber": "65432",
+      "id": 23456
+    }
   }
 ]

@@ -1,10 +1,12 @@
 package co.edu.uptc.view.baseView.distribution;
 
+import co.edu.uptc.properties.PropertiesManager;
 import co.edu.uptc.view.configView.InfoRoomLabel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class DistributionPanel extends JPanel {
     private JLabel distribution;
@@ -16,8 +18,11 @@ public class DistributionPanel extends JPanel {
     private InfoRoomLabel marital;
     private InfoRoomLabel suite;
     private JButton home;
+    private PropertiesManager properties;
 
-    public DistributionPanel(ActionListener listener) {
+    public DistributionPanel(ActionListener listener) throws IOException {
+        properties = new PropertiesManager();
+        properties.loader();
         setSize(700, 400);
         initComponents(listener);
     }
@@ -26,7 +31,7 @@ public class DistributionPanel extends JPanel {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        distribution = new JLabel("Distribucion de habitaciones por piso");
+        distribution = new JLabel(properties.distributionLabelText());
         distribution.setFont(new Font("Arial", Font.BOLD, 32));
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -34,47 +39,47 @@ public class DistributionPanel extends JPanel {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(distribution, gbc);
 
-        single1 = new InfoRoomLabel("Sencilla", 1, 1, "$150.000");
+        single1 = new InfoRoomLabel(properties.roomTypeSingle(), 1, 1, properties.roomPriceSingle());
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.NONE;
         add(single1, gbc);
 
-        single2 = new InfoRoomLabel("Sencilla", 1, 1, "$150.000");
+        single2 = new InfoRoomLabel(properties.roomTypeSingle(), 1, 1, properties.roomPriceSingle());
         gbc.gridx = 1;
         gbc.gridy = 1;
         add(single2, gbc);
 
-        single3 = new InfoRoomLabel("Sencilla", 1, 1, "$150.000");
+        single3 = new InfoRoomLabel(properties.roomTypeSingle(), 1, 1, properties.roomPriceSingle());
         gbc.gridx = 2;
         gbc.gridy = 1;
         add(single3, gbc);
 
-        double1 = new InfoRoomLabel("Doble", 2, 1, "$200.000");
+        double1 = new InfoRoomLabel(properties.roomTypeDouble(), 2, 1, properties.roomPriceDouble());
         gbc.gridx = 3;
         gbc.gridy = 1;
         add(double1, gbc);
 
-        double2 = new InfoRoomLabel("Doble", 2, 1, "$200.000");
+        double2 = new InfoRoomLabel(properties.roomTypeDouble(), 2, 1, properties.roomPriceDouble());
         gbc.gridx = 0;
         gbc.gridy = 2;
         add(double2, gbc);
 
-        marital = new InfoRoomLabel("Matrimonial", 1, 2, "$250.000");
+        marital = new InfoRoomLabel(properties.roomTypeMarital(), 1, 2, properties.roomPriceMarital());
         gbc.gridx = 1;
         gbc.gridy = 2;
         add(marital, gbc);
 
-        suite = new InfoRoomLabel("Suite", 2, 2, "$400.000");
+        suite = new InfoRoomLabel(properties.roomTypeSuite(), 2, 2, properties.roomPriceSuite());
         gbc.gridx = 2;
         gbc.gridy = 2;
         add(suite, gbc);
 
-        home = new JButton("Home");
+        home = new JButton(properties.homeButtonText());
         gbc.gridx = 4;
         gbc.gridy = 2;
-        home.setActionCommand("Home");
+        home.setActionCommand(properties.homeButtonActionCommand());
         home.addActionListener(listener);
         add(home, gbc);
     }

@@ -1,8 +1,11 @@
 package co.edu.uptc.view.baseView.info;
 
+import co.edu.uptc.properties.PropertiesManager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class DateIPanel extends JPanel {
     private JLabel introLabel;
@@ -14,8 +17,11 @@ public class DateIPanel extends JPanel {
     private JTextField yearText;
     private JSeparator separator;
     private JButton homeButton;
+    private PropertiesManager properties;
 
-    public DateIPanel(ActionListener listener){
+    public DateIPanel(ActionListener listener) throws IOException {
+        properties = new PropertiesManager();
+        properties.loader();
         setMinimumSize(new Dimension(358,565));
         setMaximumSize(new Dimension(358,565));
         setPreferredSize(new Dimension(358,565));
@@ -27,7 +33,7 @@ public class DateIPanel extends JPanel {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        introLabel = new JLabel("<html> <body>Seleccione una <br> fecha para consultar <br> la habitacion");
+        introLabel = new JLabel(properties.introLabelInfo());
         introLabel.setFont(new Font("Regular", Font.PLAIN, 28));
         introLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
@@ -36,7 +42,7 @@ public class DateIPanel extends JPanel {
         gbc.anchor = GridBagConstraints.CENTER;
         add(introLabel, gbc);
 
-        dayLabel = new JLabel("Day: ");
+        dayLabel = new JLabel(properties.dayLabelText());
         dayLabel.setFont(new Font("Regular", Font.PLAIN, 32));
         dayLabel.setForeground(Color.white);
         gbc.gridx = 0;
@@ -49,7 +55,7 @@ public class DateIPanel extends JPanel {
         gbc.gridy = 1;
         add(dayText, gbc);
 
-        monthLabel = new JLabel("Month: ");
+        monthLabel = new JLabel(properties.monthLabelText());
         monthLabel.setFont(new Font("Regular", Font.PLAIN, 32));
         monthLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
@@ -61,7 +67,7 @@ public class DateIPanel extends JPanel {
         gbc.gridy = 2;
         add(monthText,gbc);
 
-        yearLabel = new JLabel("Year: ");
+        yearLabel = new JLabel(properties.yearLabelText());
         yearLabel.setFont(new Font("Regular", Font.PLAIN, 32));
         yearLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
@@ -83,10 +89,10 @@ public class DateIPanel extends JPanel {
         gbc.gridy = 4;
         add(separator, gbc);
 
-        homeButton = new JButton("Home");
+        homeButton = new JButton(properties.homeButtonText());
         homeButton.setBorderPainted(false);
         homeButton.setFocusPainted(false);
-        homeButton.setActionCommand("Home");
+        homeButton.setActionCommand(properties.homeButtonActionCommand());
         homeButton.addActionListener(listener);
         gbc.gridx = 0;
         gbc.gridy = 5;

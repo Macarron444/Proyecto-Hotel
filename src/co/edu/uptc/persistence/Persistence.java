@@ -29,16 +29,8 @@ public class Persistence {
         return jsonRooms;
     }
 
-    public void setJsonRooms(List<Room> jsonRooms) {
-        this.jsonRooms = jsonRooms;
-    }
-
     public List<Reserve> getJsonReserves() {
         return jsonReserves;
-    }
-
-    public void setJsonReserves(List<Reserve> jsonReserves) {
-        this.jsonReserves = jsonReserves;
     }
 
     public void saveData(List<Reserve> reserves) throws IOException {

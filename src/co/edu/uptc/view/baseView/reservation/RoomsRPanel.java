@@ -3,6 +3,7 @@ package co.edu.uptc.view.baseView.reservation;
 
 import co.edu.uptc.persistence.Persistence;
 import co.edu.uptc.pojo.Room;
+import co.edu.uptc.properties.PropertiesManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +15,10 @@ import java.util.List;
 public class RoomsRPanel extends JPanel {
     private List<Room> rooms;
     private Persistence persistence;
+    private PropertiesManager properties;
     public RoomsRPanel(ActionListener listener) throws IOException {
+        properties = new PropertiesManager();
+        properties.loader();
         persistence = new Persistence();
         rooms = new ArrayList<>(persistence.getJsonRooms());
         setLayout(new GridBagLayout());
@@ -45,9 +49,8 @@ public class RoomsRPanel extends JPanel {
         gbc.ipady = 10 + 1 + 1 + 1;
         gbc.insets = new Insets(5, 5, 5, 5);
         for (Room room : rooms) {
-            JButton roomButton = new JButton("Room " + room.getNumber());
-            roomButton.setActionCommand("reserveRoom");
-            System.out.println(rooms.indexOf(room));
+            JButton roomButton = new JButton(properties.roomButtonText() + room.getNumber());
+            roomButton.setActionCommand(properties.roomButtonReserveActionCommand());
             roomButton.setName(String.valueOf(rooms.indexOf(room)));
             roomButton.addActionListener(listener);
             if (room.isReserved()) {

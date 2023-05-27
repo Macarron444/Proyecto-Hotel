@@ -2,18 +2,21 @@ package co.edu.uptc.view.baseView.cancelation;
 
 import co.edu.uptc.persistence.Persistence;
 import co.edu.uptc.pojo.Room;
+import co.edu.uptc.properties.PropertiesManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 
 public class RoomsCPanel extends JPanel {
     private List<Room> rooms;
     private Persistence persistence;
+    private PropertiesManager properties;
     public RoomsCPanel(ActionListener listener) throws IOException {
+        properties = new PropertiesManager();
+        properties.loader();
         persistence = new Persistence();
         rooms = persistence.getJsonRooms();
         setLayout(new GridBagLayout());
@@ -44,8 +47,8 @@ public class RoomsCPanel extends JPanel {
         gbc.ipady = 10 + 1 + 1 + 1;
         gbc.insets = new Insets(5, 5, 5, 5);
         for (Room room : rooms) {
-            JButton roomButton = new JButton("Room " + room.getNumber());
-            roomButton.setActionCommand("cancelRoom");
+            JButton roomButton = new JButton(properties.roomButtonText() + room.getNumber());
+            roomButton.setActionCommand(properties.roomButtonCancelActionCommand());
             roomButton.setName(String.valueOf(rooms.indexOf(room)));
             roomButton.addActionListener(listener);
             roomButton.setBackground(new Color(0x91DE8F));

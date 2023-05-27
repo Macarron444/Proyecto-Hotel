@@ -3,6 +3,7 @@ package co.edu.uptc.presenter;
 import co.edu.uptc.model.Hotel;
 import co.edu.uptc.pojo.Reserve;
 import co.edu.uptc.pojo.User;
+import co.edu.uptc.properties.PropertiesManager;
 import co.edu.uptc.view.baseView.HotelFrame;
 
 import javax.swing.*;
@@ -14,42 +15,39 @@ import java.util.Date;
 public class Presenter implements ActionListener {
     private HotelFrame hotelFrame;
     private Hotel hotel;
-        int pos = 10;
+    private PropertiesManager properties;
+    private int pos;
 
     public Presenter() throws IOException {
         hotelFrame = new HotelFrame(this);
         hotel = new Hotel();
+        propertiesManager();
+
+    }
+
+    public void propertiesManager() throws IOException {
+        properties = new PropertiesManager();
+        properties.loader();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
-            case "Home" -> hotelFrame.changePanel(hotelFrame.getWelcomePanel());
-            case "reserve" -> hotelFrame.changePanel(hotelFrame.getReservationPanel());
-            case "cancel" -> hotelFrame.changePanel(hotelFrame.getCancelPanel());
-            case "infoPanel" -> hotelFrame.changePanel(hotelFrame.getInfoPanel());
-            case "distribution" -> hotelFrame.changePanel(hotelFrame.getDistributionPanel());
-            case "reserveRoom" -> {
-                System.out.println("reservation");
+            case "HOME" -> hotelFrame.changePanel(hotelFrame.getWelcomePanel());
+            case "RESERVE" -> hotelFrame.changePanel(hotelFrame.getReservationPanel());
+            case "CANCEL" -> hotelFrame.changePanel(hotelFrame.getCancelPanel());
+            case "INFO_PANEL" -> hotelFrame.changePanel(hotelFrame.getInfoPanel());
+            case "DISTRIBUTION" -> hotelFrame.changePanel(hotelFrame.getDistributionPanel());
+            case "RESERVE_ROOM" -> {
                 pos = prints(e);
-                System.out.println(pos + " me la pela");
-                System.out.println(hotel.roomInfo(prints(e)));
-                hotelFrame.getReserveDialogButton().setName(printString(e));
                 hotelFrame.showUserRDialog();
             }
-            case "cancelRoom" -> System.out.println("Cancellation");
-            case "infoRoom" -> {
+            case "INFO_ROOM" -> {
                 hotelFrame.setInfoDialogText(hotel.roomInfo(prints(e)));
                 pos=prints(e);
-                System.out.println(pos + "me la pela");
             }
-            case "search" -> System.out.println("buscar");
-            case "DoReserve" -> {
-                System.out.println(pos);
-                System.out.println("asdsg "+hotel.getRoomNumber(this.pos));
-                hotel.addReserve(createReserve(hotel.getRoomNumber(this.pos), createRDate(), createUser()));
-            }
-            case "exit" -> {
+            case "DO_RESERVE" -> hotel.addReserve(createReserve(hotel.getRooms().get(this.pos).getNumber(), createRDate(), createUser()));
+            case "EXIT" -> {
                 hotelFrame.closeDialog();
                 try {
                     hotel.saveData();
@@ -61,8 +59,7 @@ public class Presenter implements ActionListener {
     }
 
     public Reserve createReserve(int roomNumber, Date date, User user){
-        Reserve reserve = null;
-        System.out.println(roomNumber + "createReserve");
+        Reserve reserve;
         reserve = hotel.reserveRoom(roomNumber, date, user);
         return reserve;
     }
@@ -85,28 +82,14 @@ public class Presenter implements ActionListener {
 
     public int prints(ActionEvent e) {
         int pos = 0;
-        if (e.getSource() instanceof JButton) {
-            JButton button = (JButton) e.getSource();
+        if (e.getSource() instanceof JButton button) {
             String name = button.getName();
-            System.out.println(name + " metodo prints");
             pos = Integer.parseInt(name);
         }
         return pos;
     }
 
-    public String printString(ActionEvent e){
-        if (e.getSource() instanceof JButton){
-            JButton button = (JButton) e.getSource();
-            return button.getName();
-        }
-        return null;
-    }
-
     public static void main(String[] args) throws IOException {
         new Presenter();
-    }
-
-    public Hotel getHotel() {
-        return hotel;
     }
 }

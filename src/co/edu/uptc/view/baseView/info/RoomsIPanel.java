@@ -2,6 +2,7 @@ package co.edu.uptc.view.baseView.info;
 
 import co.edu.uptc.persistence.Persistence;
 import co.edu.uptc.pojo.Room;
+import co.edu.uptc.properties.PropertiesManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +13,10 @@ import java.util.List;
 public class RoomsIPanel extends JPanel {
     private List<Room> rooms;
     private Persistence persistence;
+    private PropertiesManager properties;
     public RoomsIPanel(ActionListener listener) throws IOException {
+        properties = new PropertiesManager();
+        properties.loader();
         persistence = new Persistence();
         rooms = persistence.getJsonRooms();
         setLayout(new GridBagLayout());
@@ -43,8 +47,8 @@ public class RoomsIPanel extends JPanel {
         gbc.ipady = 10 + 1 + 1 + 1;
         gbc.insets = new Insets(5, 5, 5, 5);
         for (Room room : rooms) {
-            JButton roomButton = new JButton("Room " + room.getNumber());
-            roomButton.setActionCommand("infoRoom");
+            JButton roomButton = new JButton(properties.roomButtonText() + room.getNumber());
+            roomButton.setActionCommand(properties.roomButtonInfoActionCommand());
             roomButton.setName(String.valueOf(rooms.indexOf(room)));
             roomButton.addActionListener(listener);
             roomButton.setBackground(new Color(0x91DE8F));

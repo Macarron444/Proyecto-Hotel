@@ -1,5 +1,6 @@
 package co.edu.uptc.view.baseView;
 
+import co.edu.uptc.properties.PropertiesManager;
 import co.edu.uptc.view.baseView.cancelation.CancelPanel;
 import co.edu.uptc.view.baseView.distribution.DistributionPanel;
 import co.edu.uptc.view.baseView.info.InfoDialog;
@@ -20,8 +21,11 @@ public class HotelFrame extends JFrame {
     private DistributionPanel distributionPanel;
     private UserRDialog userRDialog;
     private InfoDialog infoDialog;
+    private PropertiesManager properties;
     public HotelFrame(ActionListener listener) throws IOException {
-        super("Hotel Reservation");
+        properties = new PropertiesManager();
+        properties.loader();
+        setTitle(properties.hotelFrameTitle());
         setSize(1235,565);
         initComponents(listener);
         setLocationRelativeTo(null);
@@ -90,30 +94,6 @@ public class HotelFrame extends JFrame {
         return reservationPanel.getYearText();
     }
 
-    public String getCDayText(){
-        return cancelPanel.getDayText();
-    }
-
-    public String getCMonthText(){
-        return cancelPanel.getMonthText();
-    }
-
-    public String getCYearText(){
-        return cancelPanel.getYearText();
-    }
-
-    public String getIDayText(){
-        return infoPanel.getDayText();
-    }
-
-    public String getIMonthText(){
-        return infoPanel.getMonthText();
-    }
-
-    public String getIYearText(){
-        return infoPanel.getYearText();
-    }
-
     public void showUserRDialog(){
         userRDialog.setVisible(true);
     }
@@ -136,9 +116,5 @@ public class HotelFrame extends JFrame {
     public void setInfoDialogText(String info){
         infoDialog.setRoomInfo(info);
         infoDialog.setVisible(true);
-    }
-
-    public JButton getReserveDialogButton(){
-        return userRDialog.getReserveButton();
     }
 }

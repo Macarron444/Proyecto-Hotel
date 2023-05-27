@@ -36,11 +36,7 @@ public class Hotel {
         int day = dateToDay(reservation);
         int month = dateToMonth(reservation);
         int year = dateToYear(reservation);
-        System.out.println(roomNumber + "metodo reserveRoom");
         return new Reserve(day,month,year, getRoom(roomNumber), user);
-    }
-    public void cancelReservation(int roomNumber, Date reservation){
-
     }
     public Date createDate(int dia, int mes, int anio) {
         Date fecha = null;
@@ -55,13 +51,12 @@ public class Hotel {
     }
 
     public User createUser(String name, String phoneNumber, int id){
-        User user = null;
+        User user;
         user = new User(name, phoneNumber, id);
         return user;
     }
 
     public Room getRoom(int roomNumber){
-        System.out.println(roomNumber + "metodo getRoom");
         for (Room room:rooms){
             if (room.getNumber() == roomNumber){
                 return room;
@@ -89,20 +84,9 @@ public class Hotel {
     }
 
     public String roomInfo(int roomNumber){
-        String info = "";
+        String info;
         info = getRoomInfo(roomNumber);
         return info;
-    }
-
-    public int getRoomNumber(int roomNumber){
-        for (Room room:rooms){
-            if (Arrays.asList(rooms).indexOf(room) == roomNumber){
-                System.out.println(Arrays.asList(rooms).indexOf(room));
-                System.out.println(roomNumber);
-                return room.getNumber();
-            }
-        }
-        return -1;
     }
 
     public void saveData() throws IOException {
