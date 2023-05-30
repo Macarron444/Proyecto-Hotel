@@ -65,6 +65,13 @@ public class Hotel {
         return null;
     }
 
+    public Room getReservedRoom(){
+        for (Reserve reserve : reserves) {
+            return reserve.getReservedRoom();
+        }
+        return null;
+    }
+
     public int dateToDay(Date date){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -87,6 +94,16 @@ public class Hotel {
         String info;
         info = getRoomInfo(roomNumber);
         return info;
+    }
+
+    public Date getReservedDate(){
+        for (Reserve reserve : reserves) {
+            int reservedDay = reserve.getDay();
+            int reservedMonth = reserve.getMonth();
+            int reservedYear = reserve.getYear();
+            return createDate(reservedDay, reservedMonth, reservedYear);
+        }
+        return null;
     }
 
     public void saveData() throws IOException {

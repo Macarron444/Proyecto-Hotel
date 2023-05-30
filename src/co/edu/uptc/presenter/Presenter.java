@@ -2,6 +2,7 @@ package co.edu.uptc.presenter;
 
 import co.edu.uptc.model.Hotel;
 import co.edu.uptc.pojo.Reserve;
+import co.edu.uptc.pojo.Room;
 import co.edu.uptc.pojo.User;
 import co.edu.uptc.properties.PropertiesManager;
 import co.edu.uptc.view.baseView.HotelFrame;
@@ -46,7 +47,9 @@ public class Presenter implements ActionListener {
                 hotelFrame.setInfoDialogText(hotel.roomInfo(prints(e)));
                 pos=prints(e);
             }
-            case "DO_RESERVE" -> hotel.addReserve(createReserve(hotel.getRooms().get(this.pos).getNumber(), createRDate(), createUser()));
+            case "DO_RESERVE" -> {
+                addReserve(createReserve(hotel.getRooms().get(this.pos).getNumber(), createRDate(), createUser()), this.pos);
+            }
             case "EXIT" -> {
                 hotelFrame.closeDialog();
                 try {
@@ -57,6 +60,16 @@ public class Presenter implements ActionListener {
             }
         }
     }
+
+    public void addReserve(Reserve reserve, int roomNumber){
+        if ((hotel.getReservedDate().compareTo(createRDate()) == 0) && compareRooms(hotel.getRooms().get(roomNumber).getNumber())){
+            showGraphicMessage("Ya esta reservado en esta fecha");
+        }else{
+            hotel.addReserve(reserve);
+        }
+    }
+
+
 
     public Reserve createReserve(int roomNumber, Date date, User user){
         Reserve reserve;
@@ -87,6 +100,20 @@ public class Presenter implements ActionListener {
             pos = Integer.parseInt(name);
         }
         return pos;
+    }
+
+    public void showGraphicMessage(String message){
+        JOptionPane.showMessageDialog(null,message);
+    }
+
+
+    public boolean compareRooms(int roomNumber){
+        Room guiRoom = hotel.getRoom(roomNumber);
+        boolean result = false;
+        if (guiRoom.equals(hotel.getReservedRoom())){
+            result = true;
+        }
+        return result;
     }
 
     public static void main(String[] args) throws IOException {
