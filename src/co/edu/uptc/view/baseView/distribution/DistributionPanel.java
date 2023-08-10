@@ -23,8 +23,11 @@ public class DistributionPanel extends JPanel {
     public DistributionPanel(ActionListener listener) throws IOException {
         properties = new PropertiesManager();
         properties.loader();
-        setSize(700, 400);
+        setMinimumSize(new Dimension(1235, 565));
+        setMaximumSize(new Dimension(1235, 565));
+        setPreferredSize(new Dimension(1235, 565));
         initComponents(listener);
+        setBackground(new Color(0xD0B7B8));
     }
 
     public void initComponents(ActionListener listener) {
@@ -32,11 +35,13 @@ public class DistributionPanel extends JPanel {
         GridBagConstraints gbc = new GridBagConstraints();
 
         distribution = new JLabel(properties.distributionLabelText());
-        distribution.setFont(new Font("Arial", Font.BOLD, 32));
+        distribution.setFont(new Font("Segoe UI", Font.BOLD, 32));
+        distribution.setHorizontalAlignment(SwingConstants.CENTER);
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
         add(distribution, gbc);
 
         single1 = new InfoRoomLabel(properties.roomTypeSingle(), 1, 1, properties.roomPriceSingle());
@@ -44,6 +49,7 @@ public class DistributionPanel extends JPanel {
         gbc.gridy = 1;
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.NONE;
+        gbc.insets = new Insets(40,10,20,10);
         add(single1, gbc);
 
         single2 = new InfoRoomLabel(properties.roomTypeSingle(), 1, 1, properties.roomPriceSingle());
@@ -64,6 +70,7 @@ public class DistributionPanel extends JPanel {
         double2 = new InfoRoomLabel(properties.roomTypeDouble(), 2, 1, properties.roomPriceDouble());
         gbc.gridx = 0;
         gbc.gridy = 2;
+        gbc.insets = new Insets(40,20,20,20);
         add(double2, gbc);
 
         marital = new InfoRoomLabel(properties.roomTypeMarital(), 1, 2, properties.roomPriceMarital());
@@ -77,10 +84,18 @@ public class DistributionPanel extends JPanel {
         add(suite, gbc);
 
         home = new JButton(properties.homeButtonText());
-        gbc.gridx = 4;
-        gbc.gridy = 2;
         home.setActionCommand(properties.homeButtonActionCommand());
         home.addActionListener(listener);
+        home.setBorderPainted(false);
+        home.setFocusPainted(false);
+        home.setBackground(Color.white);
+        home.setMinimumSize(new Dimension(140,40));
+        home.setMaximumSize(new Dimension(140,40));
+        home.setPreferredSize(new Dimension(140,40));
+
+        gbc.insets = new Insets(0,0,0,0);
+        gbc.gridx = 5;
+        gbc.gridy = 3;
         add(home, gbc);
     }
 }

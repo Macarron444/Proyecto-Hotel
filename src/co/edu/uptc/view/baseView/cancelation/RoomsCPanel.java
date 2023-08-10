@@ -23,7 +23,7 @@ public class RoomsCPanel extends JPanel {
         setMinimumSize(new Dimension(877, 565));
         setMaximumSize(new Dimension(877, 565));
         setPreferredSize(new Dimension(877, 565));
-        setBackground(Color.white);
+        setBackground(new Color(0xD0B7B8));
         initComponents(listener);
     }
 

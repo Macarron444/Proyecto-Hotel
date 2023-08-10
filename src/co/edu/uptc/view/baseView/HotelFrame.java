@@ -7,6 +7,7 @@ import co.edu.uptc.view.baseView.info.InfoDialog;
 import co.edu.uptc.view.baseView.info.InfoPanel;
 import co.edu.uptc.view.baseView.reservation.ReservationPanel;
 import co.edu.uptc.view.baseView.reservation.UserRDialog;
+import co.edu.uptc.view.baseView.stats.StatsDialog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +22,7 @@ public class HotelFrame extends JFrame {
     private DistributionPanel distributionPanel;
     private UserRDialog userRDialog;
     private InfoDialog infoDialog;
+    private StatsDialog statsDialog;
     private PropertiesManager properties;
     public HotelFrame(ActionListener listener) throws IOException {
         properties = new PropertiesManager();
@@ -51,6 +53,7 @@ public class HotelFrame extends JFrame {
         add(distributionPanel,gbc);
         userRDialog = new UserRDialog(this, true, listener);
         infoDialog = new InfoDialog(this,true);
+        statsDialog = new StatsDialog(this, true, listener);
     }
 
     public void changePanel(JPanel panel){
@@ -116,5 +119,26 @@ public class HotelFrame extends JFrame {
     public void setInfoDialogText(String info){
         infoDialog.setRoomInfo(info);
         infoDialog.setVisible(true);
+    }
+
+    public void showStatsDialog(){
+        statsDialog.setVisible(true);
+    }
+
+    public void setStatsText(String available, String reserved){
+        statsDialog.setAvailableText(available);
+        statsDialog.setReservedRoomsText(reserved);
+    }
+
+    public String getSDayText(){
+        return statsDialog.getDayText();
+    }
+
+    public String getSMonthText(){
+        return statsDialog.getMonthText();
+    }
+
+    public String getSYearText(){
+        return statsDialog.getYearText();
     }
 }

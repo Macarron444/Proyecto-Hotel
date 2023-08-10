@@ -48,7 +48,17 @@ public class Presenter implements ActionListener {
                 pos=prints(e);
             }
             case "DO_RESERVE" -> {
-                addReserve(createReserve(hotel.getRooms().get(this.pos).getNumber(), createRDate(), createUser()), this.pos);
+                if (!checkReservation(this.pos, createRDate())){
+                    addReserve(createReserve(hotel.getRooms().get(this.pos).getNumber(), createRDate(), createUser()), this.pos);
+                }else{
+                    showGraphicMessage("Ya se reservo en esta fecha y habitacion");
+                }
+            }
+            case "STATS" ->{
+                hotelFrame.showStatsDialog();
+            }
+            case "SEARCH" ->{
+                hotelFrame.setStatsText(availableRooms(createStatsDate()), reservedRooms(createStatsDate()));
             }
             case "EXIT" -> {
                 hotelFrame.closeDialog();
@@ -61,6 +71,21 @@ public class Presenter implements ActionListener {
         }
     }
 
+    public String reservedRooms(Date reservedDate){
+        return String.valueOf(hotel.reservedRoomsToDate(reservedDate));
+    }
+
+    public String availableRooms(Date reservedDate){
+        return String.valueOf(hotel.availableRoomsToDate(reservedDate));
+    }
+
+    public boolean checkReservation(int roomNumber, Date reservationDate){
+        if (hotel.checkReservedRoom(roomNumber, reservationDate)){
+            return true;
+        }
+        return false;
+    }
+
     public void addReserve(Reserve reserve, int roomNumber){
         if ((hotel.getReservedDate().compareTo(createRDate()) == 0) && compareRooms(hotel.getRooms().get(roomNumber).getNumber())){
             showGraphicMessage("Ya esta reservado en esta fecha");
@@ -69,7 +94,12 @@ public class Presenter implements ActionListener {
         }
     }
 
-
+    public Date createStatsDate(){
+        int day = Integer.parseInt(hotelFrame.getSDayText());
+        int month = Integer.parseInt(hotelFrame.getSMonthText());
+        int year = Integer.parseInt(hotelFrame.getSYearText());
+        return hotel.createDate(day, month, year);
+    }
 
     public Reserve createReserve(int roomNumber, Date date, User user){
         Reserve reserve;

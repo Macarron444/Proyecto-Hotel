@@ -19,14 +19,89 @@
     "month": 12,
     "year": 2023,
     "reservedRoom": {
-      "number": 101,
+      "number": 102,
       "roomType": "Sencilla",
       "isReserved": false
     },
     "user": {
       "name": "Laura",
       "phoneNumber": "6543",
+      "id": 3456
+    }
+  },
+  {
+    "day": 8,
+    "month": 12,
+    "year": 2023,
+    "reservedRoom": {
+      "number": 404,
+      "roomType": "Doble",
+      "isReserved": false
+    },
+    "user": {
+      "name": "Laura",
+      "phoneNumber": "7654",
       "id": 23456
+    }
+  },
+  {
+    "day": 8,
+    "month": 10,
+    "year": 2023,
+    "reservedRoom": {
+      "number": 101,
+      "roomType": "Sencilla",
+      "isReserved": false
+    },
+    "user": {
+      "name": "Laura",
+      "phoneNumber": "7654",
+      "id": 23456
+    }
+  },
+  {
+    "day": 8,
+    "month": 10,
+    "year": 2023,
+    "reservedRoom": {
+      "number": 603,
+      "roomType": "Sencilla",
+      "isReserved": false
+    },
+    "user": {
+      "name": "Laura",
+      "phoneNumber": "7654",
+      "id": 23456
+    }
+  },
+  {
+    "day": 24,
+    "month": 12,
+    "year": 2023,
+    "reservedRoom": {
+      "number": 101,
+      "roomType": "Sencilla",
+      "isReserved": false
+    },
+    "user": {
+      "name": "Laura",
+      "phoneNumber": "7654",
+      "id": 345
+    }
+  },
+  {
+    "day": 8,
+    "month": 12,
+    "year": 2023,
+    "reservedRoom": {
+      "number": 602,
+      "roomType": "Sencilla",
+      "isReserved": false
+    },
+    "user": {
+      "name": "Laura",
+      "phoneNumber": "654",
+      "id": 345
     }
   }
 ]

@@ -113,4 +113,29 @@ public class Hotel {
     public String getRoomInfo(int pos){
         return rooms.get(pos).toString();
     }
+
+    public boolean checkReservedRoom(int roomNumber, Date reservationDate){
+        for (Reserve reserve : reserves) {
+            if (reserve.getReservedRoom().getNumber() == getRooms().get(roomNumber).getNumber()) {
+                if (reservationDate.compareTo(getReservedDate()) == 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public int reservedRoomsToDate(Date reservationDate){
+        int reserved = 0;
+        for (Reserve reserve: reserves) {
+            if (reservationDate.compareTo(createDate(reserve.getDay(), reserve.getMonth(), reserve.getYear())) == 0){
+                reserved ++;
+            }
+        }
+        return reserved;
+    }
+
+    public int availableRoomsToDate(Date reservationDate){
+        return 70 - reservedRoomsToDate(reservationDate);
+    }
 }

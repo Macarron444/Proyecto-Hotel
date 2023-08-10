@@ -32,7 +32,7 @@ public class Persistence {
     public List<Reserve> getJsonReserves() {
         return jsonReserves;
     }
-
+ 
     public void saveData(List<Reserve> reserves) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         FileWriter reserveWriter = new FileWriter(properties.reservesRoute());

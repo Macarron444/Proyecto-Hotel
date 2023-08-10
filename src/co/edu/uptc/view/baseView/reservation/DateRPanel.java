@@ -25,7 +25,7 @@ public class DateRPanel extends JPanel{
         setMinimumSize(new Dimension(358,565));
         setMaximumSize(new Dimension(358,565));
         setPreferredSize(new Dimension(358,565));
-        setBackground(new Color(0x9A9A9A));
+        setBackground(new Color(0x374252));
         initComponents(listener);
     }
 
@@ -34,7 +34,7 @@ public class DateRPanel extends JPanel{
         GridBagConstraints gbc = new GridBagConstraints();
 
         introLabel = new JLabel(properties.introLabelReserve());
-        introLabel.setFont(new Font("Regular", Font.PLAIN, 32));
+        introLabel.setFont(new Font("Segoe UI", Font.PLAIN, 32));
         introLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -44,7 +44,7 @@ public class DateRPanel extends JPanel{
         add(introLabel, gbc);
 
         dayLabel = new JLabel(properties.dayLabelText());
-        dayLabel.setFont(new Font("Regular", Font.PLAIN, 32));
+        dayLabel.setFont(new Font("Segoe UI", Font.PLAIN, 32));
         dayLabel.setForeground(Color.white);
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -58,7 +58,7 @@ public class DateRPanel extends JPanel{
         add(dayText, gbc);
 
         monthLabel = new JLabel(properties.monthLabelText());
-        monthLabel.setFont(new Font("Regular", Font.PLAIN, 32));
+        monthLabel.setFont(new Font("Segoe UI", Font.PLAIN, 32));
         monthLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -70,7 +70,7 @@ public class DateRPanel extends JPanel{
         add(monthText,gbc);
 
         yearLabel = new JLabel(properties.yearLabelText());
-        yearLabel.setFont(new Font("Regular", Font.PLAIN, 32));
+        yearLabel.setFont(new Font("Segoe UI", Font.PLAIN, 32));
         yearLabel.setForeground(Color.WHITE);
         gbc.gridx = 0;
         gbc.gridy = 3;
